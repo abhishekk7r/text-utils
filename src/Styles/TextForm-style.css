@@ -1,0 +1,15 @@
+.lowerCase {
+  margin-left: 5px;
+}
+
+h1 {
+  background: -webkit-linear-gradient(110deg, #373b44, #4286f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.h2 {
+  background: -webkit-linear-gradient(110deg, #373b44, #4286f4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

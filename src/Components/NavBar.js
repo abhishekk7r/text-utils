@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const NavBar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -39,7 +39,7 @@ const NavBar = (props) => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
+            <button className="btn btn-outline-warning" type="submit">
               Search
             </button>
           </form>
