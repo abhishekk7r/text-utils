@@ -2,9 +2,13 @@ import React, { useState } from "react";
 
 const TextForm = (props) => {
   const handleUpClick = () => {
-    console.log("handleUpClick was Clicked");
+    setText(text.toUpperCase());
   };
 
+  const handleLowClick = () => {
+    setText(text.toLowerCase());
+  }
+  
   const handleOnChange = (event) => {
     console.log(event);
     setText(event.target.value);
@@ -26,6 +30,9 @@ const TextForm = (props) => {
       </div>
       <button className="btn btn-primary" onClick={handleUpClick}>
         Convert To Uppercase
+      </button>
+      <button className="btn btn-primary" onClick={handleLowClick}>
+        Convert To LoweCase
       </button>
     </div>
   );
