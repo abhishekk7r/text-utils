@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../Styles/TextForm-style.css"
+import "../Styles/TextForm-style.css";
+
 
 const TextForm = (props) => {
   const [text, setText] = useState("");
@@ -15,6 +16,10 @@ const TextForm = (props) => {
   const handleOnChange = (event) => {
     console.log(event);
     setText(event.target.value);
+  };
+
+  const handleClearText = () => {
+    setText("");
   };
 
 
@@ -38,13 +43,19 @@ const TextForm = (props) => {
         <button className="btn btn-primary lowerCase" onClick={handleLowClick}>
           Convert To LoweCase
         </button>
+        <button className="btn btn-primary lowerCase" onClick={handleClearText}>
+          Clear
+        </button>
+        
       </div>
       <div className="container my-4">
         <h2 className="h2">Text Summary</h2>
         <p className="h5">
           {text.split(" ").length} words and {text.length} Characters
         </p>
-        <p>{parseFloat(0.008 * text.split(" ").length).toFixed(2)} Minute read</p>
+        <p>
+          {parseFloat(0.008 * text.split(" ").length).toFixed(2)} Minute read
+        </p>
         <h3>Preview</h3>
         <p>{text}</p>
       </div>
