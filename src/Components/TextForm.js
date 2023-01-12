@@ -22,7 +22,16 @@ const TextForm = (props) => {
     setText("");
   };
 
+  const handleExtraSpace = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  }
 
+  const copyText = () => {
+    let copy = document.getElementById("myBox");
+    copy.select();
+    navigator.clipboard.writeText(copy.value);
+  };
   return (
     <>
       <div>
@@ -46,7 +55,8 @@ const TextForm = (props) => {
         <button className="btn btn-primary lowerCase" onClick={handleClearText}>
           Clear
         </button>
-        
+        <button onClick={copyText} className="btn btn-primary lowerCase">Copy text</button>
+        <button onClick={handleExtraSpace} className="btn btn-primary lowerCase">Remove Spaces</button>
       </div>
       <div className="container my-4">
         <h2 className="h2">Text Summary</h2>
