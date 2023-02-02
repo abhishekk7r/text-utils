@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../Styles/TextForm-style.css";
 
-
 const TextForm = (props) => {
   const [text, setText] = useState("");
 
@@ -25,7 +24,7 @@ const TextForm = (props) => {
   const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-  }
+  };
 
   const copyText = () => {
     let copy = document.getElementById("myBox");
@@ -55,8 +54,15 @@ const TextForm = (props) => {
         <button className="btn btn-primary lowerCase" onClick={handleClearText}>
           Clear
         </button>
-        <button onClick={copyText} className="btn btn-primary lowerCase">Copy text</button>
-        <button onClick={handleExtraSpace} className="btn btn-primary lowerCase">Remove Spaces</button>
+        <button onClick={copyText} className="btn btn-primary lowerCase">
+          Copy text
+        </button>
+        <button
+          onClick={handleExtraSpace}
+          className="btn btn-primary lowerCase"
+        >
+          Remove Spaces
+        </button>
       </div>
       <div className="container my-4">
         <h2 className="h2">Text Summary</h2>
@@ -67,7 +73,7 @@ const TextForm = (props) => {
           {parseFloat(0.008 * text.split(" ").length).toFixed(2)} Minute read
         </p>
         <h3>Preview</h3>
-        <p>{text}</p>
+        <p>{text?text:'Enter the text you want to preview in the Textarea'}</p>
       </div>
     </>
   );
