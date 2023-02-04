@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/gtihub.io/text-utils/static/css/main.22d39e78.css",
+    "main.js": "/gtihub.io/text-utils/static/js/main.69fbbd0b.js",
+    "static/js/787.28cb0dcd.chunk.js": "/gtihub.io/text-utils/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/gtihub.io/text-utils/index.html",
+    "main.22d39e78.css.map": "/gtihub.io/text-utils/static/css/main.22d39e78.css.map",
+    "main.69fbbd0b.js.map": "/gtihub.io/text-utils/static/js/main.69fbbd0b.js.map",
+    "787.28cb0dcd.chunk.js.map": "/gtihub.io/text-utils/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22d39e78.css",
+    "static/js/main.69fbbd0b.js"
+  ]
+}
