@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <nav
+      className={`navbar navbar-expand-lg bg-${props.mode}`}
+      data-bs-theme={props.mode}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -33,17 +36,21 @@ const NavBar = (props) => {
               </Link>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          <div className={`form-check form-switch mx-3 text-${props.mode === 'dark'?'light':'dark'}`}>
             <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+              className="form-check-input"
+              onChange={props.toggleMode}
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckDefault"
             />
-            <button className="btn btn-outline-warning  " type="submit">
-              Search
-            </button>
-          </form>
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckDefault"
+            >
+              Switch Modes
+            </label>
+          </div>
         </div>
       </div>
     </nav>

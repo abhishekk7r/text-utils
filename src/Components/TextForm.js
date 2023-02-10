@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/TextForm-style.css";
 
-
 const TextForm = (props) => {
   const [text, setText] = useState("");
 
@@ -26,7 +25,7 @@ const TextForm = (props) => {
   const handleExtraSpace = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-  }
+  };
 
   const copyText = () => {
     let copy = document.getElementById("myBox");
@@ -75,10 +74,14 @@ const TextForm = (props) => {
           {parseFloat(0.008 * text.split(" ").length).toFixed(2)} Minute read
         </p>
         <h3>Preview</h3>
+<<<<<<< HEAD
         <p>{text}</p>
         <Link to="/About">
           <button className="btn btn-primary">About</button>
         </Link>
+=======
+        <p>{text?text:'Enter the text you want to preview in the Textarea'}</p>
+>>>>>>> 0bfbbe8cd048c693f093dfdf0127aa76cd8ce1d4
       </div>
     </>
   );

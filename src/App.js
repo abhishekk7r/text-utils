@@ -5,6 +5,7 @@ import "./App.css";
 
 import NavBar from "./Components/NavBar";
 import TextForm from "./Components/TextForm";
+<<<<<<< HEAD
 import About from "./Components/About";
 
 function App() {
@@ -15,6 +16,32 @@ function App() {
     <BrowserRouter>
       <NavBar title="TextUtils" aboutTitle="About" />
       {/* <div className="container-lg my-3">
+=======
+// import About from "./Pages/About"
+import React, { useState } from "react";
+
+function App() {
+  const [mode, setMode] = useState(`light`);
+
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = "black";
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+    }
+  };
+  return (
+    <>
+      <NavBar
+        title="TextUtils"
+        aboutTitle="About"
+        mode={mode}
+        toggleMode={toggleMode}
+      />
+      <div className="container-lg my-3">
+>>>>>>> 0bfbbe8cd048c693f093dfdf0127aa76cd8ce1d4
         <TextForm heading="Enter your text to analayze" />
       </div> */}
 
