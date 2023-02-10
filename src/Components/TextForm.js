@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../Styles/TextForm-style.css";
 
 
@@ -34,7 +35,7 @@ const TextForm = (props) => {
   };
   return (
     <>
-      <div>
+      <div className="container-lg my-3">
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <label htmlFor="myBox" className="form-label"></label>
@@ -55,8 +56,15 @@ const TextForm = (props) => {
         <button className="btn btn-primary lowerCase" onClick={handleClearText}>
           Clear
         </button>
-        <button onClick={copyText} className="btn btn-primary lowerCase">Copy text</button>
-        <button onClick={handleExtraSpace} className="btn btn-primary lowerCase">Remove Spaces</button>
+        <button onClick={copyText} className="btn btn-primary lowerCase">
+          Copy text
+        </button>
+        <button
+          onClick={handleExtraSpace}
+          className="btn btn-primary lowerCase"
+        >
+          Remove Spaces
+        </button>
       </div>
       <div className="container my-4">
         <h2 className="h2">Text Summary</h2>
@@ -68,9 +76,17 @@ const TextForm = (props) => {
         </p>
         <h3>Preview</h3>
         <p>{text}</p>
+        <Link to="/About">
+          <button className="btn btn-primary">About</button>
+        </Link>
       </div>
     </>
   );
 };
 
 export default TextForm;
+
+
+TextForm.defaultProps = {
+  heading: "This is the Heading"
+}
