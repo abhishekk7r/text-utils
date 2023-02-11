@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "../Styles/TextForm-style.css";
 
 const TextForm = (props) => {
@@ -7,6 +6,7 @@ const TextForm = (props) => {
 
   const handleUpClick = () => {
     setText(text.toUpperCase());
+    props.showAlert()
   };
 
   const handleLowClick = () => {
@@ -32,6 +32,7 @@ const TextForm = (props) => {
     copy.select();
     navigator.clipboard.writeText(copy.value);
   };
+
   return (
     <>
       <div className="container-lg my-3">
@@ -67,21 +68,23 @@ const TextForm = (props) => {
       </div>
       <div className="container my-4">
         <h2 className="h2">Text Summary</h2>
-        <p className="h5">
-          {text.split(" ").length} words and {text.length} Characters
+        <p>
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
         <p>
-          {parseFloat(0.008 * text.split(" ").length).toFixed(2)} Minute read
+          {0.008 *
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes read
         </p>
-        <h3>Preview</h3>
-<<<<<<< HEAD
-        <p>{text}</p>
-        <Link to="/About">
-          <button className="btn btn-primary">About</button>
-        </Link>
-=======
-        <p>{text?text:'Enter the text you want to preview in the Textarea'}</p>
->>>>>>> 0bfbbe8cd048c693f093dfdf0127aa76cd8ce1d4
+        <h2>Preview</h2>
+        <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
       </div>
     </>
   );
@@ -89,7 +92,3 @@ const TextForm = (props) => {
 
 export default TextForm;
 
-
-TextForm.defaultProps = {
-  heading: "This is the Heading"
-}

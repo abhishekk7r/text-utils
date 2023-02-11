@@ -2,16 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const NavBar = (props) => {
+export default function Navbar(props) {
   return (
     <nav
-      className={`navbar navbar-expand-lg bg-${props.mode}`}
-      data-bs-theme={props.mode}
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           {props.title}
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -26,45 +25,46 @@ const NavBar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link class="nav-link active" aria-current="page"  to="/">
+              <Link className="nav-link" aria-current="page" to="/">
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/About">
-                {props.aboutTitle}
+              <Link className="nav-link" to="/about">
+                {props.aboutText}
               </Link>
             </li>
           </ul>
-          <div className={`form-check form-switch mx-3 text-${props.mode === 'dark'?'light':'dark'}`}>
+          <div
+            className={`form-check form-switch text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
+          >
             <input
               className="form-check-input"
-              onChange={props.toggleMode}
+              onClick={props.toggleMode}
               type="checkbox"
-              role="switch"
               id="flexSwitchCheckDefault"
             />
             <label
               className="form-check-label"
               htmlFor="flexSwitchCheckDefault"
             >
-              Switch Modes
+              Enable DarkMode
             </label>
           </div>
         </div>
       </div>
     </nav>
   );
-};
+}
 
-export default NavBar;
-
-NavBar.propTypes = {
+Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  aboutTitle: PropTypes.string.isRequired,
+  aboutText: PropTypes.string.isRequired,
 };
 
-NavBar.defaultProps = {
-  title: "Title Here",
-  aboutTitle: "About Title Here",
+Navbar.defaultProps = {
+  title: "Set title here",
+  aboutText: "About",
 };
