@@ -1,36 +1,19 @@
-import React, { useState } from "react";
-
-const About = () => {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
+import React from "react";
+const About = (props) => {
   
-
-  const toggleMode = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-
-      setBtnText("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-
-      setBtnText("Enable Dark Mode");
-    }
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "#042743",
+    backgroundColor: props.mode === "light" ? "white" : "rgb(23 90 144)",
+    border: "1px solid",
+    borderColor: props.mode === "dark" ? "white" : "#042743",
   };
 
+
   return (
-    <div style={myStyle}>
-      <div className="container my-5" style={myStyle}>
+    <div>
+      <div className="container my-5">
         <h1>About Us</h1>
-        <div className="accordion" id="accordionExample" style={myStyle}>
+        <div className="accordion" id="accordionExample">
           <div className="accordion-item" style={myStyle}>
             <h2 className="accordion-header" id="headingOne">
               <button
@@ -42,7 +25,7 @@ const About = () => {
                 aria-expanded="true"
                 aria-controls="collapseOne"
               >
-                Accordion Item #1
+                About
               </button>
             </h2>
             <div
@@ -52,14 +35,11 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. It's also worth noting that
-                just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                As a text editor website, our primary goal is to provide an
+                efficient and user-friendly platform for users to write, edit
+                and manage their documents online. We understand the importance
+                of quality text editing tools and strive to deliver the best
+                possible experience to our users.
               </div>
             </div>
           </div>
@@ -74,7 +54,7 @@ const About = () => {
                 aria-expanded="false"
                 aria-controls="collapseTwo"
               >
-                Accordion Item #2
+                Purpose
               </button>
             </h2>
             <div
@@ -84,15 +64,12 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Our purpose is to provide a streamlined and efficient solution
+                for writing and editing documents. Our text editor is designed
+                to be simple and intuitive, making it easy for users of all
+                skill levels to use. Whether you are a professional writer,
+                student, or just someone looking to draft a quick note, our text
+                editor has the features and tools you need to get the job done.
               </div>
             </div>
           </div>
@@ -107,7 +84,7 @@ const About = () => {
                 aria-expanded="false"
                 aria-controls="collapseThree"
               >
-                Accordion Item #3
+                Thank You
               </button>
             </h2>
             <div
@@ -116,23 +93,17 @@ const About = () => {
               aria-labelledby="headingThree"
               data-bs-parent="#accordionExample"
             >
-              <div className="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+              <div className="accordion-body" style={myStyle}>
+                Thank you for using our text editor website. We are grateful for
+                your support and are dedicated to delivering the best possible
+                experience for you. We are constantly working to improve our
+                platform and add new features to make your text editing
+                experience even better. So, keep using our text editor and watch
+                us grow!
               </div>
             </div>
           </div>
         </div>
-        <button className="btn btn-primary my-3" onClick={toggleMode}>
-          {btnText}
-        </button>
       </div>
     </div>
   );

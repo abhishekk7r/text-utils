@@ -42,9 +42,9 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<TextForm heading="Enter Your text To Analyze" mode={mode} showAlert={showAlert}/>}
+          element={<TextForm heading="Try Text Utils - Word Counter, Character Counter, Remove " mode={mode} showAlert={showAlert}/>}
         ></Route>
-        <Route path="/About" element={<About />}></Route>
+        <Route path="/About" element={<About mode={mode}/>}></Route>
       </Routes>
     </BrowserRouter>
   );
