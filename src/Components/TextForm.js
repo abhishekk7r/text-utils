@@ -39,79 +39,81 @@ const TextForm = (props) => {
 
   return (
     <>
-      <div className="container-lg my-3">
-        <h1>{props.heading}</h1>
-        <div className="mb-3">
-          <label htmlFor="myBox" className="form-label"></label>
-          <textarea
-            className="form-control"
-            value={text}
-            onChange={handleOnChange}
-            id="myBox"
-            rows="12"
-            style={{
-              color: props.mode === "light" ? "white" : "black",
-              backgroundColor:
-                props.mode === "dark" ? "lightskyblue" : "white ",
-            }}
-          ></textarea>
+      <div>
+        <div className="container-lg my-3">
+          <h1>{props.heading}</h1>
+          <div className="mb-3 ">
+            <label htmlFor="myBox" className="form-label"></label>
+            <textarea
+              className="form-control"
+              value={text}
+              onChange={handleOnChange}
+              id="myBox"
+              rows="8"
+              style={{
+                color: props.mode === "light" ? "black" : "black",
+                backgroundColor:
+                  props.mode === "dark" ? "lightskyblue" : "white ",
+              }}
+            ></textarea>
+          </div>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary "
+            onClick={handleUpClick}
+          >
+            Convert To Uppercase
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary mx-1 my-1"
+            onClick={handleLowClick}
+          >
+            Convert To LoweCase
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="btn btn-primary mx-1 my-1"
+            onClick={handleClearText}
+          >
+            Clear
+          </button>
+          <button
+            disabled={text.length === 0}
+            onClick={copyText}
+            className="btn btn-primary mx-1 my-1"
+          >
+            Copy text
+          </button>
+          <button
+            disabled={text.length === 0}
+            onClick={handleExtraSpace}
+            className="btn btn-primary mx-1 my-1"
+          >
+            Remove Spaces
+          </button>
         </div>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary "
-          onClick={handleUpClick}
-        >
-          Convert To Uppercase
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary mx-1 my-1"
-          onClick={handleLowClick}
-        >
-          Convert To LoweCase
-        </button>
-        <button
-          disabled={text.length === 0}
-          className="btn btn-primary mx-1 my-1"
-          onClick={handleClearText}
-        >
-          Clear
-        </button>
-        <button
-          disabled={text.length === 0}
-          onClick={copyText}
-          className="btn btn-primary mx-1 my-1"
-        >
-          Copy text
-        </button>
-        <button
-          disabled={text.length === 0}
-          onClick={handleExtraSpace}
-          className="btn btn-primary mx-1 my-1"
-        >
-          Remove Spaces
-        </button>
-      </div>
-      <div className="container my-4">
-        <h2 className="h2">Text Summary</h2>
-        <div style={{ color: props.mode === "light" ? "black" : "white" }}>
-          <p>
-            {
-              text.split(/\s+/).filter((element) => {
-                return element.length !== 0;
-              }).length
-            }{" "}
-            words and {text.length} characters
-          </p>
-          <p>
-            {0.008 *
-              text.split(/\s+/).filter((element) => {
-                return element.length !== 0;
-              }).length}{" "}
-            Minutes read
-          </p>
-          <h2>Preview</h2>
-          <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
+        <div className="container my-4">
+          <h2 className="h2">Text Summary</h2>
+          <div style={{ color: props.mode === "light" ? "black" : "white" }}>
+            <p>
+              {
+                text.split(/\s+/).filter((element) => {
+                  return element.length !== 0;
+                }).length
+              }{" "}
+              words and {text.length} characters
+            </p>
+            <p>
+              {0.008 *
+                text.split(/\s+/).filter((element) => {
+                  return element.length !== 0;
+                }).length}{" "}
+              Minutes read
+            </p>
+            <h2>Preview</h2>
+            <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
+          </div>
         </div>
       </div>
     </>

@@ -3,13 +3,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import NavBar from "./Components/NavBar";
-import {useState} from "react";
+import { useState } from "react";
 import TextForm from "./Components/TextForm";
 import About from "./Components/About";
 import Alert from "./Components/Alert";
+import "./index.css";
 
 function App() {
-  
   const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
 
@@ -37,14 +37,26 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar title="TextUtils" mode={mode} toggleMode={toggleMode} aboutTitle="About" />
-      <Alert alert={alert}/>
+      <NavBar
+        title="TextUtils"
+        mode={mode}
+        toggleMode={toggleMode}
+        aboutTitle="About"
+      />
+      <Alert alert={alert} />
+
       <Routes>
         <Route
           path="/"
-          element={<TextForm heading="Try Text Utils - Word Counter, Character Counter, Remove " mode={mode} showAlert={showAlert}/>}
+          element={
+            <TextForm
+              heading="Try Text Utils - Word Counter, Character Counter, Remove "
+              mode={mode}
+              showAlert={showAlert}
+            />
+          }
         ></Route>
-        <Route path="/About" element={<About mode={mode}/>}></Route>
+        <Route path="/About" element={<About mode={mode} />}></Route>
       </Routes>
     </BrowserRouter>
   );
