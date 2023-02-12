@@ -3,6 +3,12 @@ import "../Styles/TextForm-style.css";
 
 const TextForm = (props) => {
   const [text, setText] = useState("");
+  let timeToRead =
+    0.008 *
+    text.split(/\s+/).filter((element) => {
+      return element.length !== 0;
+    }).length;
+
 
   const handleUpClick = () => {
     setText(text.toUpperCase());
@@ -104,13 +110,7 @@ const TextForm = (props) => {
               }{" "}
               words and {text.length} characters
             </p>
-            <p>
-              {0.008 *
-                text.split(/\s+/).filter((element) => {
-                  return element.length !== 0;
-                }).length}{" "}
-              Minutes read
-            </p>
+            <p>{timeToRead.toFixed(2)} Minutes read</p>
             <h2>Preview</h2>
             <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
           </div>
